@@ -8,10 +8,10 @@
           {{ todo.project }}
       </div>
       <div class='extra content'>
-          <span class='right floated edit icon' v-on:click="showForm">
+          <span class='right floated edit icon' @click="showForm">
           <i class='edit icon'></i>
         </span>
-        <span class='right floated trash icon' v-on:click="deleteTodo(todo)">
+        <span class='right floated trash icon' @click="deleteTodo(todo)">
           <i class='trash icon'></i>
         </span>
       </div>
@@ -27,7 +27,7 @@
           <input type='text' v-model="todo.project" >
         </div>
         <div class='ui two button attached buttons'>
-          <button class='ui basic blue button' v-on:click="hideForm">
+          <button class='ui basic blue button' @click="hideForm">
             Close X
           </button>
         </div>
@@ -36,7 +36,7 @@
     <div class='ui bottom attached green basic button' v-show="!isEditing &&todo.done" disabled>
         Completed
     </div>
-    <div class='ui bottom attached red basic button' v-on:click="completeTodo(todo)" v-show="!isEditing && !todo.done">
+    <div class='ui bottom attached red basic button' @click="completeTodo(todo)" v-show="!isEditing && !todo.done">
         Pending
     </div>
   </div>
