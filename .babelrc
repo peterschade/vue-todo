@@ -3,10 +3,5 @@
     "env"
   ],
   "plugins": ["transform-runtime"],
-  "comments": false,
-  "env": {
-    "test": {
-      "plugins": [ "istanbul" ]
-    }
-  }
+  "comments": false
 }
