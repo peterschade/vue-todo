@@ -2,6 +2,7 @@
   <div class="ui centered card" :class="{ 'green' :todo.done }">
     <!--yoda, ternary: :class="todo.done ? 'green' : 'red'"  -->
 
+
     <!--View Mode-->
     <div class="content" v-show="!isEditing">
       <div class="header">
@@ -19,7 +20,6 @@
         </span>
       </div>
     </div>
-    <!-- Todo: add checkbox -->
     <div class="ui bottom attached blue basic icon button" @click="completeTodo(todo)" v-show="!isEditing && !todo.done">
       <i class="checkmark sign icon"></i>
       Done
@@ -45,9 +45,6 @@
         Cancel
       </button>
     </div>
-
-
-
 
   </div>
 </template>

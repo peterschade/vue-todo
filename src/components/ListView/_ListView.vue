@@ -2,6 +2,7 @@
   <div>
     <p class="tasks">Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
     <p class="tasks">Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+
     <todo @delete-todo="deleteTodo" @complete-todo="completeTodo" v-for="todo in todos" :todo.sync="todo"></todo>
   </div>
 </template>
@@ -41,9 +42,10 @@ export default {
 };
 </script>
 
+<!--Scoped styles wont leak into other components -->
 <style scoped>
-p.tasks {
-  text-align: center;
-}
+  p.tasks {
+    text-align: center;
+  }
 </style>
 
