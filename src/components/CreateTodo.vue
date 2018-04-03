@@ -14,12 +14,15 @@
             <label>Project</label>
             <input v-model="projectText" type='text'>
           </div>
-          <div class='ui two button attached buttons'>
-            <button class='ui basic blue button' @click="sendForm()">
-              Create
-            </button>
-            <button class='ui basic red button' @click="closeForm">
+
+          <div class='ui buttons'>
+            <button class='ui icon button' @click="closeForm">
               Cancel
+            </button>
+            <div class="or"></div>
+            <button class="ui right labeled icon button positive" @click="sendForm()">
+              <i class="add icon"></i>
+              New
             </button>
           </div>
         </div>
