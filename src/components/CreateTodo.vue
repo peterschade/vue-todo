@@ -1,26 +1,29 @@
 <template>
   <div class='ui basic content center aligned segment'>
-    <button class='ui basic button icon' @click="openForm" v-show="!isCreating">
-      <i class='plus icon'></i>
+    <!--Add button-->
+    <button class="ui circular positive icon button" @click="openForm" v-show="!isCreating">
+      <i class="plus icon"></i>
     </button>
-    <div class='ui centered card' v-show="isCreating">
-      <div class='content'>
-        <div class='ui form'>
-          <div class='field'>
+
+    <!--form-->
+    <div class="ui centered card" v-show="isCreating">
+      <div class="content">
+        <div class="ui form">
+          <div class="field">
             <label>Title</label>
-            <input v-model="titleText" type='text'>
+            <input v-model="titleText" type="text">
           </div>
-          <div class='field'>
+          <div class="field">
             <label>Project</label>
-            <input v-model="projectText" type='text'>
+            <input v-model="projectText" type="text">
           </div>
 
-          <div class='ui buttons'>
-            <button class='ui icon button' @click="closeForm">
+          <div class="ui buttons">
+            <button class="ui icon button" @click="closeForm">
               Cancel
             </button>
             <div class="or"></div>
-            <button class="ui right labeled icon button positive" @click="sendForm()">
+            <button class="ui positive right labeled icon button" @click="sendForm()">
               <i class="add icon"></i>
               New
             </button>
