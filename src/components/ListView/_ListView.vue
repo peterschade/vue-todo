@@ -1,5 +1,10 @@
 <template>
   <div>
+    <the-header>
+      VueDO
+      <template slot="sub-header">Vue2 basic demo</template>
+    </the-header>
+
     <div class="four column centered row">
       <p class="column tasks">
         Completed Tasks:
@@ -11,23 +16,50 @@
       </p>
     </div>
 
+    <!-- v-for over array with key, v-bind todo -->
     <todo v-for="(todo, index) in todos" :key="index"
           @delete-todo="deleteTodo"
           @complete-todo="completeTodo"
-          :todo.sync="todo"
-    />
+          :todo.sync="todo" />
+
+    <!-- v-on emitted events -->
+    <create-todo @create-todo="createTodo"></create-todo>
   </div>
 </template>
 
 <script type="text/javascript">
   import sweetalert from 'sweetalert'
-  import Todo from './Todo'
+  import Todo from './Todo.vue'
+  import CreateTodo from './TodoCreate.vue'
+  import TheHeader from 'src/components/TheHeader.vue'
 
   export default {
-    props: ['todos'],
-
     components: {
       Todo,
+      CreateTodo,
+      TheHeader,
+    },
+
+    data() {
+      return {
+        todos: [{
+          title: 'Todo A',
+          project: 'Project A',
+          done: false,
+        }, {
+          title: 'Todo B',
+          project: 'Project B',
+          done: true,
+        }, {
+          title: 'Todo C',
+          project: 'Project C',
+          done: false,
+        }, {
+          title: 'Todo D',
+          project: 'Project D',
+          done: false,
+        }],
+      }
     },
 
     methods: {
@@ -49,11 +81,18 @@
             }
           })
       },
+
       completeTodo(todo) {
         const todoIndex = this.todos.indexOf(todo)
         this.todos[todoIndex].done = true
 
         sweetalert('Success!', 'To-Do completed!', 'success')
+      },
+
+      createTodo(newTodo) {
+        this.todos.push(newTodo)
+
+        sweetalert('Success!', 'To-Do created!', 'success')
       },
     },
   }

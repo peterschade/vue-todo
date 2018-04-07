@@ -1,24 +1,26 @@
 <template>
   <div class='ui basic content center aligned segment'>
     <!--Add button-->
-    <button class="ui circular positive icon button" @click="openForm" v-show="!isCreating">
+    <button class="ui circular positive icon button"
+            @click="openForm"
+            v-show="!isCreating">
       <i class="plus icon"></i>
     </button>
 
     <!--form-->
-    <div class="ui centered card" v-show="isCreating">
+    <div class="ui fluid card" v-show="isCreating">
       <div class="content">
         <div class="ui form">
           <div class="field">
             <label>
-              <slot></slot>
-              <input v-model="titleText" type="text">
+              Your new Todo
+              <input type="text" v-model="titleText">
             </label>
           </div>
           <div class="field">
             <label>
               Project
-              <input v-model="projectText" type="text" >
+              <input type="text" v-model="projectText">
             </label>
           </div>
 

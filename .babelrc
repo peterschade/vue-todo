@@ -2,6 +2,11 @@
   "presets": [
     "env"
   ],
-  "plugins": ["transform-runtime"],
+  "plugins": [
+    "transform-runtime",
+    ["module-resolver", {
+      "root": ["./"]
+    }]
+  ],
   "comments": false
 }
