@@ -48,8 +48,8 @@
 
     <div class='ui bottom attached buttons' v-show="isEditing">
       <button class='ui icon button' @click="hideForm">
-        <i class="close icon"></i>
-        Cancel
+        <i class="edit icon"></i>
+        Submit changes
       </button>
     </div>
 
