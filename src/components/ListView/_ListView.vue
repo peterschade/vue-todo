@@ -31,7 +31,7 @@
   import sweetalert from 'sweetalert'
   import Todo from './Todo.vue'
   import CreateTodo from './TodoCreate.vue'
-  import TheHeader from 'src/components/TheHeader.vue'
+  import { TheHeader } from 'src/components'
 
   export default {
     components: {
