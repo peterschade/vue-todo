@@ -13,12 +13,10 @@
       </div>
 
       <div class="extra content">
-          <span class="right floated edit icon"
-                @click="showForm">
+          <span class="right floated edit icon" @click="showForm">
           <i class="edit icon"></i>
         </span>
-        <span class="right floated trash icon"
-              @click="deleteTodo(todo)">
+        <span class="right floated trash icon" @click="deleteTodo(todo)">
           <i class="trash icon"></i>
         </span>
       </div>
@@ -47,6 +45,7 @@
         </div>
       </div>
     </div>
+
     <div class='ui bottom attached buttons' v-show="isEditing">
       <button class='ui icon button' @click="hideForm">
         <i class="close icon"></i>

@@ -7,7 +7,7 @@ module.exports = {
         'plugin:vue/essential',
     ],
     rules: {
-        'comma-dangle': [1, 'always'],
+        'comma-dangle': [1, 'always-multiline'],
         'semi': [1, 'never'],
         'object-curly-spacing': [2, 'always', {'objectsInObjects': false}],
         'standard/object-curly-even-spacing': [0, 'either'],
