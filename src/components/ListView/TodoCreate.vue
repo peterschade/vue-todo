@@ -10,12 +10,16 @@
       <div class="content">
         <div class="ui form">
           <div class="field">
-            <label>Title</label>
-            <input v-model="titleText" type="text">
+            <label>
+              <slot></slot>
+              <input v-model="titleText" type="text">
+            </label>
           </div>
           <div class="field">
-            <label>Project</label>
-            <input v-model="projectText" type="text">
+            <label>
+              Project
+              <input v-model="projectText" type="text" >
+            </label>
           </div>
 
           <div class="ui buttons">
@@ -35,35 +39,39 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      titleText: '',
-      projectText: '',
-      isCreating: false,
-    };
-  },
-  methods: {
-    openForm() {
-      this.isCreating = true;
-    },
-    closeForm() {
-      this.isCreating = false;
-    },
-    sendForm() {
-      if (this.titleText.length > 0 && this.projectText.length > 0) {
-        const title = this.titleText;
-        const project = this.projectText;
-        this.$emit('create-todo', {
-          title,
-          project,
-          done: false,
-        });
-        this.titleText = '';
-        this.projectText = '';
-        this.isCreating = false;
+  export default {
+    data() {
+      return {
+        titleText: '',
+        projectText: '',
+        isCreating: false,
       }
     },
-  },
-};
+
+    methods: {
+      openForm() {
+        this.isCreating = true
+      },
+      closeForm() {
+        this.isCreating = false
+      },
+      sendForm() {
+        if (this.titleText.length > 0 && this.projectText.length > 0) {
+          const title = this.titleText
+          const project = this.projectText
+
+          this.$emit('create-todo', {
+            title,
+            project,
+            done: false,
+          })
+
+          // clear form
+          this.titleText = ''
+          this.projectText = ''
+          this.isCreating = false
+        }
+      },
+    },
+  }
 </script>

@@ -1,57 +1,72 @@
 <template>
   <div>
-
     <div class="four column centered row">
-      <p class="column tasks">Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
-      <p class="column tasks">Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+      <p class="column tasks">
+        Completed Tasks:
+        <b>{{todos.filter(todo => todo.done).length}}</b>
+      </p>
+      <p class="column tasks">
+        Pending Tasks:
+        <b>{{todos.filter(todo => !todo.done).length}}</b>
+      </p>
     </div>
 
-    <todo @delete-todo="deleteTodo"
+    <todo v-for="(todo, index) in todos" :key="index"
+          @delete-todo="deleteTodo"
           @complete-todo="completeTodo"
-          v-for="(todo, index) in todos" :key="index"
-          :todo.sync="todo" />
+          :todo.sync="todo"
+    />
   </div>
 </template>
 
-<script type = "text/javascript" >
-import sweetalert from 'sweetalert';
-import Todo from './Todo';
+<script type="text/javascript">
+  import sweetalert from 'sweetalert'
+  import Todo from './Todo'
 
-export default {
-  props: ['todos'],
-  components: {
-    Todo,
-  },
-  methods: {
-    deleteTodo(todo) {
-      sweetalert({
-        title: 'Are you sure?',
-        text: 'This To-Do will be permanently deleted!',
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#DD6B55',
-        confirmButtonText: 'Yes, delete it!',
-        closeOnConfirm: false,
+  export default {
+    props: ['todos'],
+
+    components: {
+      Todo,
+    },
+
+    methods: {
+      deleteTodo(todo) {
+        sweetalert({
+            title: 'Are you sure?',
+            text: 'This To-Do will be permanently deleted!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Yes, delete it!',
+            closeOnConfirm: false,
+          },
+          () => {
+            const todoIndex = this.todos.indexOf(todo)
+            this.todos.splice(todoIndex, 1)
+
+            sweetalert('Deleted!', 'Your To-Do has been deleted.', 'success')
+          }
+        )
       },
-      () => {
-        const todoIndex = this.todos.indexOf(todo);
-        this.todos.splice(todoIndex, 1);
-        sweetalert('Deleted!', 'Your To-Do has been deleted.', 'success');
-      });
+      completeTodo(todo) {
+        const todoIndex = this.todos.indexOf(todo)
+        this.todos[todoIndex].done = true
+
+        sweetalert('Success!', 'To-Do completed!', 'success')
+      },
     },
-    completeTodo(todo) {
-      const todoIndex = this.todos.indexOf(todo);
-      this.todos[todoIndex].done = true;
-      sweetalert('Success!', 'To-Do completed!', 'success');
-    },
-  },
-};
+  }
 </script>
 
 <!--Scoped styles wont leak into other components -->
-<style scoped>
+<style scoped lang="scss">
   p.tasks {
-    text-align: center;
+    display: inline-block;
+
+    &:first-child {
+      padding-right: 1rem;
+    }
   }
 </style>
 
