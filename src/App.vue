@@ -1,10 +1,19 @@
 <template>
   <div id="app">
-    <h1 class="ui dividing centered header">VueDO</h1>
-    <div class='ui three column centered grid'>
-      <div class='column'>
+    <div class='ui centered grid'>
+      <div class='twelve wide mobile eight wide tablet six wide computer column'>
+
+        <h2 class="ui dividing header">
+          <i class="check square outline icon"></i>
+          <div class="content">
+            VueDO
+            <div class="sub header">Vue2 basic demo</div>
+          </div>
+        </h2>
+
         <todo-list :todos="todos"></todo-list>
         <create-todo @create-todo="createTodo"></create-todo>
+
       </div>
     </div>
   </div>

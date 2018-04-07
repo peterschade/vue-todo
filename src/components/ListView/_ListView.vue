@@ -1,9 +1,15 @@
 <template>
   <div>
-    <p class="tasks">Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
-    <p class="tasks">Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
 
-    <todo @delete-todo="deleteTodo" @complete-todo="completeTodo" v-for="todo in todos" :todo.sync="todo"></todo>
+    <div class="four column centered row">
+      <p class="column tasks">Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
+      <p class="column tasks">Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+    </div>
+
+    <todo @delete-todo="deleteTodo"
+          @complete-todo="completeTodo"
+          v-for="(todo, index) in todos" :key="index"
+          :todo.sync="todo" />
   </div>
 </template>
 

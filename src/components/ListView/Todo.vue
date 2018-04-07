@@ -1,5 +1,5 @@
 <template>
-  <div class="ui centered card" :class="{ 'green' :todo.done }">
+  <div class="ui fluid card" :class="{ 'green' :todo.done }">
     <!--yoda, ternary: :class="todo.done ? 'green' : 'red'"  -->
 
 
