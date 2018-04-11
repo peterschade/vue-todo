@@ -31,7 +31,7 @@
   import sweetalert from 'sweetalert'
   import Todo from './Todo.vue'
   import CreateTodo from './TodoCreate.vue'
-  import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
 
   // Todo: use absolute path src/ as root https://github.com/parcel-bundler/parcel/pull/850
   import { TheHeader } from '../index.js'
@@ -80,6 +80,8 @@
     },
 
     methods: {
+      ...mapMutations(['addTodo']),
+
       deleteTodo(todo) {
         sweetalert(
           'Are you sure you want to delete that?', {
@@ -107,7 +109,9 @@
       },
 
       createTodo(newTodo) {
-        this.todos.push(newTodo)
+
+        this.addTodo(newTodo)
+
 
         sweetalert('Success!', 'To-Do created!', 'success')
       },

@@ -24,10 +24,9 @@ export default new Vuex.Store({
     }],
   },
   mutations: {
-    // addTodo (state) {
-    //   console.log('addTodo: %o', state)
-    //   // state.todos
-    // },
+    addTodo (state, newTodo) {
+      state.todos.push(newTodo)
+    },
   },
 })
 
