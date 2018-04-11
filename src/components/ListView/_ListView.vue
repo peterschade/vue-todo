@@ -8,11 +8,11 @@
     <div class="four column centered row">
       <p class="column tasks">
         Completed Tasks:
-        <b>{{todos.filter(todo => todo.done).length}}</b>
+        <b>{{ counterDone }}</b>
       </p>
       <p class="column tasks">
         Pending Tasks:
-        <b>{{todos.filter(todo => !todo.done).length}}</b>
+        <b>{{ counterTodo }}</b>
       </p>
     </div>
 
@@ -31,9 +31,12 @@
   import sweetalert from 'sweetalert'
   import Todo from './Todo.vue'
   import CreateTodo from './TodoCreate.vue'
-  import { TheHeader } from 'src/components'
+
+  // Todo: use absolute path src/ as root https://github.com/parcel-bundler/parcel/pull/850
+  import { TheHeader } from '../index.js'
 
   export default {
+    name: 'ListView',
     components: {
       Todo,
       CreateTodo,
@@ -60,6 +63,16 @@
           done: false,
         }],
       }
+    },
+
+    // Like methods, but are cached until dependency changes
+    computed: {
+      counterDone () {
+        return this.todos.filter(todo => todo.done).length
+      },
+      counterTodo() {
+        return this.todos.filter(todo => !todo.done).length
+      },
     },
 
     methods: {
