@@ -8,6 +8,6 @@ import router from './router.js'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router: router(Vue),
+  router,
   render: h => h(App),
 })
