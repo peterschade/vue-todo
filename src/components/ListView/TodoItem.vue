@@ -2,7 +2,6 @@
   <div class="ui fluid card" :class="{ 'green' :todo.done }">
     <!-- yoda, ternary: :class="todo.done ? 'green' : 'red'"  -->
 
-
     <!--View Mode-->
     <div class="content" v-show="!isEditing">
       <div class="header">

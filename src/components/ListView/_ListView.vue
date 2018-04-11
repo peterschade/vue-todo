@@ -17,20 +17,20 @@
     </div>
 
     <!-- v-for over array with key, v-bind todo -->
-    <todo v-for="(todo, index) in todos" :key="index"
+    <todo-item v-for="(todo, index) in todos" :key="index"
           @delete-todo="deleteTodo"
           @complete-todo="completeTodo"
-          :todo.sync="todo" />
+          :todo="todo" />
 
     <!-- v-on emitted events -->
-    <create-todo @create-todo="createTodo"></create-todo>
+    <todo-item-add @create-todo="createTodo"></todo-item-add>
   </div>
 </template>
 
 <script type="text/javascript">
   import sweetalert from 'sweetalert'
-  import Todo from './Todo.vue'
-  import CreateTodo from './TodoCreate.vue'
+  import TodoItem from './TodoItem.vue'
+  import TodoItemAdd from './TodoItemAdd.vue'
   import { mapState, mapMutations } from 'vuex'
 
   // Todo: use absolute path src/ as root https://github.com/parcel-bundler/parcel/pull/850
@@ -39,9 +39,19 @@
   export default {
     name: 'ListView',
     components: {
-      Todo,
-      CreateTodo,
+      TodoItem,
+      TodoItemAdd,
       TheHeader,
+    },
+
+    props: {
+      status: {
+        type: String,
+        required: true,
+        validator: function (value) {
+          return ['syncing', 'error'].indexOf(value) !== -1
+        },
+      },
     },
 
     /** Moved to store.js -> computed **/
