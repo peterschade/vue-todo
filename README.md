@@ -1,4 +1,4 @@
-# todo-app
+# VueDO
 
 > A Vue.js project with basic routing and state management. Uses Parcel-Bundler and Semantic-UI.
 
