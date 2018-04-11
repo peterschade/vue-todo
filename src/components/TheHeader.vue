@@ -1,7 +1,8 @@
 <template>
   <!-- Multiple Slot example -->
   <h2 class="ui dividing header">
-    <i class="green check square outline icon"></i>
+    <!--<i class="green check square outline icon"></i>-->
+    <img src="../assets/logo.png">
     <div class="content">
 
       <slot></slot>
