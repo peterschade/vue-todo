@@ -31,6 +31,7 @@
   import sweetalert from 'sweetalert'
   import Todo from './Todo.vue'
   import CreateTodo from './TodoCreate.vue'
+  import { mapState } from 'vuex'
 
   // Todo: use absolute path src/ as root https://github.com/parcel-bundler/parcel/pull/850
   import { TheHeader } from '../index.js'
@@ -43,30 +44,35 @@
       TheHeader,
     },
 
-    data() {
-      return {
-        todos: [{
-          title: 'Todo A',
-          project: 'Project A',
-          done: false,
-        }, {
-          title: 'Todo B',
-          project: 'Project B',
-          done: true,
-        }, {
-          title: 'Todo C',
-          project: 'Project C',
-          done: false,
-        }, {
-          title: 'Todo D',
-          project: 'Project D',
-          done: false,
-        }],
-      }
-    },
+    /** Moved to store.js -> computed **/
+    // data() {
+    //   return {
+    //     todos: [{
+    //       title: 'Test A',
+    //       project: 'Project A',
+    //       done: false,
+    //     }, {
+    //       title: 'Test B',
+    //       project: 'Project B',
+    //       done: true,
+    //     }, {
+    //       title: 'Test C',
+    //       project: 'Project C',
+    //       done: false,
+    //     }, {
+    //       title: 'Test D',
+    //       project: 'Project D',
+    //       done: false,
+    //     }],
+    //   }
+    // },
 
     // Like methods, but are cached until dependency changes
     computed: {
+      ...mapState({
+        todos: 'todos',
+      }),
+
       counterDone () {
         return this.todos.filter(todo => todo.done).length
       },
