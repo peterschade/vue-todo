@@ -69,9 +69,7 @@
 
     // Like methods, but are cached until dependency changes
     computed: {
-      ...mapState({
-        todos: 'todos',
-      }),
+      ...mapState(['todos']),
 
       counterDone () {
         return this.todos.filter(todo => todo.done).length
