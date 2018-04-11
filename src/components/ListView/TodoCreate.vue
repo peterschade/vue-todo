@@ -75,5 +75,10 @@
         }
       },
     },
+
+    // no arrow functions! needs this context to vue instance
+    created: function () {
+      console.log('TodoCreate.vue component was created')
+    },
   }
 </script>
