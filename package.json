@@ -1,7 +1,7 @@
 {
-  "name": "todo-app",
+  "name": "VueDO",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Vue.js project with basic routing and state management. Uses parcel-bundler and semantic-ui.",
   "author": "Ben Richter <bri@move-elevator.de>",
   "private": true,
   "scripts": {
