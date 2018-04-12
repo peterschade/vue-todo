@@ -1,10 +1,12 @@
 <template>
   <div>
+    <!-- slot example -->
     <the-header>
       VueDO
       <template slot="sub-header">Vue2 basic demo</template>
     </the-header>
 
+    <!-- computed properties -->
     <div class="four column centered row">
       <p class="column tasks">
         Completed Tasks:
@@ -16,7 +18,7 @@
       </p>
     </div>
 
-    <!-- v-for over array with key, v-bind todo -->
+    <!-- v-for over array with key, v-bind -->
     <todo-item v-for="(todo, index) in todos" :key="index"
           @delete-todo="deleteTodo"
           @complete-todo="completeTodo"
