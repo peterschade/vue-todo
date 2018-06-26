@@ -1,8 +1,8 @@
 # VueDO
 
-> A Vue.js demo project with basic routing and state management. Uses Parcel-Bundler and Semantic-UI.
+> A Vue.js TODO demo project with basic routing and state management. Uses Parcel-Bundler and Semantic-UI.
 
-Corresponding presentation is available under https://speakerdeck.com/moveelevator/nice-to-met-vue
+based on 
 
 ![VueDO Screenshot](/screenshot.png?raw=true)
 
